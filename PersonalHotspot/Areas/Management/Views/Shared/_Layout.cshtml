@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Personal Hotspot Management</title>
+    <link href="~/Areas/Management/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Areas/Management/css/site.css" rel="stylesheet" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="educations" asp-action="educations">Resume Management</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+
+                        <li class="nav-item">
+                            @Html.ActionLink("Home Contents", "index", "homecontents", new { area = "management" }, new { @class = "nav-link text-dark" })
+                        </li>
+
+                        <li class="nav-item">
+                            @Html.ActionLink("About Contents", "index", "aboutcontents", new { area = "management" }, new { @class = "nav-link text-dark" })
+                        </li>
+
+                        <li class="nav-item">
+                            @Html.ActionLink("Title-Description Skills", "index", "titledescriptionskills", new { area = "management" }, new { @class = "nav-link text-dark" })
+                        </li>
+
+                        <li class="nav-item">
+                            @Html.ActionLink("Title-Score Skills", "index", "titlescoreskills", new { area = "management" }, new { @class = "nav-link text-dark" })
+                        </li>
+
+                        <li class="nav-item">
+                            @Html.ActionLink("Timeline Contents", "index", "timelinecontents", new { area = "management" }, new { @class = "nav-link text-dark" })
+                        </li>
+
+                        <li class="nav-item">
+                            @Html.ActionLink("Go to website", "profile", "pages", new { area = "" }, new { @class = "nav-link text-dark", target = "_blank" })
+                        </li>
+                        @if (ViewBag.ResumeProfiles != null)
+                        {
+                            <li class="nav-item">
+                                <select id="activeProfile">
+                                    @foreach (var profile in ViewBag.ResumeProfiles)
+                                    {
+                                        <option id="@profile.Id">@profile.HomeContent.FullName</option>
+                                    }
+                                </select>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; @DateTime.Now.Year - ResumeManagement.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/Areas/Management/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/Areas/Management/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Areas/Management/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

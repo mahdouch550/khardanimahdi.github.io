@@ -1,0 +1,94 @@
+﻿@model PersonalHotspot.Areas.Management.Models.HomeContent
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Management/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HomeContent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageFileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageFileName)
+        </dd>
+
+        <dt>
+            Image
+        </dt>
+
+        <dd>
+            @{
+                var base64Image = Convert.ToBase64String(Model.ImageByteArray);
+                <img src="data:image/png;base64,@base64Image" height="100" width="100" />
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GreetingLine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GreetingLine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Summary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Summary)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.FacebookLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacebookLink)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.InstagramLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstagramLink)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.GithubLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GithubLink)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.LinkedinLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinkedinLink)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
