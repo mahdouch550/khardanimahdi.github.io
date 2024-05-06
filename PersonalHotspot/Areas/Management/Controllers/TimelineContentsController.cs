@@ -2,7 +2,6 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using PersonalHotspot.Areas.Management.Data;
 using PersonalHotspot.Areas.Management.Models;
@@ -16,8 +15,7 @@ namespace PersonalHotspot.Areas.Management.Controllers
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            HttpCookie canAccessCookie = base.Request.Cookies["CanAccess"];
-            if (canAccessCookie != null && canAccessCookie.Value.Equals("Y"))
+            if (Session["CanAccess"].ToString() == "Y")
             {
                 base.ViewBag.ResumeProfiles = db.PersonalHotspotResumes.ToList();
                 base.OnActionExecuting(filterContext);

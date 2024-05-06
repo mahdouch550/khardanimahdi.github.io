@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using System.Web.Services.Description;
 using PersonalHotspot.Areas.Management.Data;
 using PersonalHotspot.Areas.Management.Models;
 using PersonalHotspot.Services;

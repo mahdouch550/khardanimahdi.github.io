@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace PersonalHotspot.Areas.Management.Controllers
 {
@@ -10,15 +9,7 @@ namespace PersonalHotspot.Areas.Management.Controllers
         public bool Check(string typedPassword)
         {
             bool canAccess = typedPassword.Equals("baranayek");
-            if (canAccess)
-            {
-                HttpCookie accessCookie = new("CanAccess", "Y")
-                {
-                    HttpOnly = true,
-                    Secure = true
-                };
-                base.Response.Cookies.Add(accessCookie);
-            }
+            Session["CanAccess"] = canAccess ? "Y" : "N";
             return canAccess;
         }
     }
