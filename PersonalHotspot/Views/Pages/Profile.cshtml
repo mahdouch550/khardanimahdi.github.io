@@ -424,6 +424,9 @@
                     inputAttributes: {
                         autocapitalize: "off"
                     },
+                    background: '#1b1f22',
+                    color: '#dabd1d',
+                    confirmButtonColor: '#dabd1d',
                     showCancelButton: true,
                     confirmButtonText: "Check",
                     showLoaderOnConfirm: true,
@@ -447,7 +450,10 @@
                                     Swal.fire({
                                         title: "Authentication error",
                                         text: "Wrong password!",
-                                        icon: "error"
+                                        icon: "error",
+                                        background: '#1b1f22',
+                                        color: '#dabd1d',
+                                        confirmButtonColor: '#dabd1d'
                                     });
                                 }
                             },
@@ -478,15 +484,25 @@
                 data: contactMessage,
                 success: function (response)
                 {
-                    // This function will be called if the request succeeds
-                    console.log('POST request successful');
-                    console.log('Response:', response);
+                    Swal.fire({
+                        title: "Well recieved",
+                        text: "Your message have been delivered and you will be contacted shortly",
+                        icon: "success",
+                        background: '#1b1f22',
+                        color: '#dabd1d',
+                        confirmButtonColor: '#dabd1d'
+                    });
+                    location.href = '#home';
                 },
                 error: function (xhr, status, error) {
-                    // This function will be called if the request fails
-                    console.error('POST request failed');
-                    console.error('Status:', status);
-                    console.error('Error:', error);
+                    Swal.fire({
+                        title: "Error",
+                        text: "Unfortunately an error occurred, message not sent",
+                        icon: "error",
+                        background: '#1b1f22',
+                        color: '#dabd1d',
+                        confirmButtonColor: '#dabd1d'
+                    });
                 }
             });
         });
